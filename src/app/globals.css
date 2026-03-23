@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep Cosmic Background */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    
+    /* Darker Card Surfaces */
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Electric Purple Primary */
+    --primary: 270 91% 65%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 65%;
+    
+    /* Neon Pink Accent */
+    --accent: 322 100% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 270 91% 65%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-white;
+  }
+}
+
+.glass {
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-gradient {
+  background: linear-gradient(to top, hsl(var(--background)) 0%, rgba(10, 10, 15, 0.4) 50%, transparent 100%);
+}
+
+.neon-glow-primary {
+  box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.5);
+}
+
+.neon-glow-accent {
+  box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.5);
+}
+
+/* Custom Scrollbar for a sleek look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}

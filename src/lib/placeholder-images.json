@@ -1,0 +1,46 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Cinematic sci-fi landscape",
+      "imageUrl": "https://picsum.photos/seed/sv1/1920/1080",
+      "imageHint": "cinematic landscape"
+    },
+    {
+      "id": "video-1",
+      "description": "Action movie cover",
+      "imageUrl": "https://picsum.photos/seed/sv2/600/400",
+      "imageHint": "action movie"
+    },
+    {
+      "id": "video-2",
+      "description": "Space exploration documentary",
+      "imageUrl": "https://picsum.photos/seed/sv3/600/400",
+      "imageHint": "space exploration"
+    },
+    {
+      "id": "video-3",
+      "description": "Romantic comedy poster",
+      "imageUrl": "https://picsum.photos/seed/sv4/600/400",
+      "imageHint": "romance movie"
+    },
+    {
+      "id": "video-4",
+      "description": "Thriller mystery scene",
+      "imageUrl": "https://picsum.photos/seed/sv5/600/400",
+      "imageHint": "thriller movie"
+    },
+    {
+      "id": "video-5",
+      "description": "Animated family adventure",
+      "imageUrl": "https://picsum.photos/seed/sv6/600/400",
+      "imageHint": "animated movie"
+    },
+    {
+      "id": "video-6",
+      "description": "Historical drama",
+      "imageUrl": "https://picsum.photos/seed/sv7/600/400",
+      "imageHint": "historical drama"
+    }
+  ]
+}
