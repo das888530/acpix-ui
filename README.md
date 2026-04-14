@@ -30,3 +30,4 @@ BACKEND_URL="http://localhost:4000"
 
 - This frontend expects the backend API to be available at `BACKEND_URL`.
 - Session cookies are still issued by the frontend layer.
+- Admin media uploads are sent to the backend and served from the backend `/uploads/...` path.

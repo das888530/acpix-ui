@@ -1,43 +1,50 @@
 'use server';
 
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
-import { existsSync } from 'fs';
+type UploadResponse = {
+  absoluteUrl?: string;
+  url?: string;
+};
 
 /**
- * Server Action to handle uploading files to the public/uploads directory.
+ * Server Action to forward uploads to the backend media service.
  */
 export async function uploadFile(formData: FormData) {
+  const backendUrl = process.env.BACKEND_URL;
+  if (!backendUrl) {
+    throw new Error('BACKEND_URL is not configured');
+  }
+
   try {
     const file = formData.get('file') as File;
     if (!file) {
       throw new Error('No file provided');
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const response = await fetch(`${backendUrl}/api/uploads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': file.type || 'application/octet-stream',
+        'x-file-name': file.name,
+      },
+      body: Buffer.from(await file.arrayBuffer()),
+      cache: 'no-store',
+    });
 
-    // Define the upload path relative to the project root
-    const uploadDir = join(process.cwd(), 'public', 'uploads');
-    
-    // Ensure the directory exists
-    if (!existsSync(uploadDir)) {
-      await mkdir(uploadDir, { recursive: true });
+    if (!response.ok) {
+      let message = `Upload failed with ${response.status}`;
+      try {
+        const body = await response.json();
+        if (body?.error) {
+          message = body.error;
+        }
+      } catch {}
+      throw new Error(message);
     }
 
-    // Sanitize filename
-    const safeName = file.name.replace(/[^a-z0-0.]/gi, '_').toLowerCase();
-    const fileName = `${Date.now()}-${safeName}`;
-    const filePath = join(uploadDir, fileName);
-
-    // Write the file
-    await writeFile(filePath, buffer);
-    
-    // Return the public URL that Next.js can serve
-    // Next.js serves files in 'public' at the root path '/'
-    return `/uploads/${fileName}`;
+    const body = (await response.json()) as UploadResponse;
+    return body.absoluteUrl || body.url || '';
   } catch (error) {
     console.error('Upload error:', error);
-    throw new Error('Failed to save file to project directory');
+    throw new Error('Failed to upload file to backend media service');
   }
 }
