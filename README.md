@@ -40,6 +40,7 @@ For a plain Next.js production build without OpenNext output:
 - The OpenNext adapter config is [frontend/open-next.config.ts](/c:/project/ACPIX/frontend/open-next.config.ts:1).
 - Cloudflare should use `npm run build` in `frontend/`, which now generates the OpenNext output needed by deploy.
 - You can also run `npm run cf:deploy` locally after install.
+- Keep installs deterministic by using the committed lockfile and `npm ci` where possible.
 
 ## Notes
 
