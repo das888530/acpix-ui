@@ -4,6 +4,10 @@
   // Worker name must match the Worker project created in Cloudflare.
   "name": "acpix-ui",
   "compatibility_date": "2026-04-14",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": ".open-next/worker.js",
 
   // Keep bindings in source control so Cloudflare dashboard settings do not drift.
   "services": [
@@ -15,14 +19,9 @@
 
   "images": {
     "binding": "IMAGES"
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
   }
-
-  // If you switch to direct Wrangler/OpenNext deployment, add the generated
-  // worker entrypoint here and uncomment the assets block below.
-  //
-  // "main": ".open-next/worker.js",
-  // "assets": {
-  //   "directory": ".open-next/assets",
-  //   "binding": "ASSETS"
-  // }
 }

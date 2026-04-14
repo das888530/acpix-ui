@@ -32,7 +32,9 @@ BACKEND_URL="http://localhost:4000"
 - The Worker name is set to `acpix-ui`.
 - `WORKER_SELF_REFERENCE` is bound to `acpix-ui` so it does not drift to the old `acpix-frontend` name.
 - `IMAGES` is declared as a Worker binding in config.
-- If you deploy with direct Wrangler/OpenNext output instead of Cloudflare's framework build, uncomment the `main` and `assets` section in `wrangler.jsonc` and point them at the generated output paths.
+- `ASSETS` is bound to `.open-next/assets`.
+- The OpenNext adapter config is [frontend/open-next.config.ts](/c:/project/ACPIX/frontend/open-next.config.ts:1).
+- Install dependencies, then run `npm run cf:build` before `wrangler deploy`, or use `npm run cf:deploy`.
 
 ## Notes
 
