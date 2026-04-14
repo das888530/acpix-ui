@@ -26,6 +26,10 @@ BACKEND_URL="http://localhost:4000"
 - `npm run build`
 - `npm run start`
 
+For a plain Next.js production build without OpenNext output:
+
+- `npm run build:next`
+
 ## Cloudflare
 
 - The checked-in Worker config is [frontend/wrangler.jsonc](/c:/project/ACPIX/frontend/wrangler.jsonc:1).
@@ -34,7 +38,8 @@ BACKEND_URL="http://localhost:4000"
 - `IMAGES` is declared as a Worker binding in config.
 - `ASSETS` is bound to `.open-next/assets`.
 - The OpenNext adapter config is [frontend/open-next.config.ts](/c:/project/ACPIX/frontend/open-next.config.ts:1).
-- Install dependencies, then run `npm run cf:build` before `wrangler deploy`, or use `npm run cf:deploy`.
+- Cloudflare should use `npm run build` in `frontend/`, which now generates the OpenNext output needed by deploy.
+- You can also run `npm run cf:deploy` locally after install.
 
 ## Notes
 
