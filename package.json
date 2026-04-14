@@ -3,10 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack -p 9002",
-    "build": "opennextjs-cloudflare build",
-    "build:next": "next build",
+    "build": "next build",
     "cf:build": "opennextjs-cloudflare build",
-    "cf:deploy": "opennextjs-cloudflare build && wrangler deploy",
+    "cf:deploy": "opennextjs-cloudflare deploy",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
     "start": "next start",
@@ -45,7 +44,7 @@
     "firebase": "^11.9.1",
     "genkit": "^1.28.0",
     "lucide-react": "^0.475.0",
-    "next": "15.5.9",
+    "next": "15.5.15",
     "patch-package": "^8.0.0",
     "react": "^19.2.1",
     "react-day-picker": "^9.11.3",
@@ -59,7 +58,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "1.6.0",
+    "@opennextjs/cloudflare": "1.19.1",
     "@types/node": "^20",
     "@types/react": "^19.2.1",
     "@types/react-dom": "^19.2.1",
