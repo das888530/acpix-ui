@@ -16,6 +16,9 @@
   "images": {
     "binding": "IMAGES"
   },
+  
+  "main": "src/index.ts"
+  
 
   // If you switch to direct Wrangler/OpenNext deployment, add the generated
   // worker entrypoint here and uncomment the assets block below.
