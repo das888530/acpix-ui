@@ -26,6 +26,14 @@ BACKEND_URL="http://localhost:4000"
 - `npm run build`
 - `npm run start`
 
+## Cloudflare
+
+- The checked-in Worker config is [frontend/wrangler.jsonc](/c:/project/ACPIX/frontend/wrangler.jsonc:1).
+- The Worker name is set to `acpix-ui`.
+- `WORKER_SELF_REFERENCE` is bound to `acpix-ui` so it does not drift to the old `acpix-frontend` name.
+- `IMAGES` is declared as a Worker binding in config.
+- If you deploy with direct Wrangler/OpenNext output instead of Cloudflare's framework build, uncomment the `main` and `assets` section in `wrangler.jsonc` and point them at the generated output paths.
+
 ## Notes
 
 - This frontend expects the backend API to be available at `BACKEND_URL`.
